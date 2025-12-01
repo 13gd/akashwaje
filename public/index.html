@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Akash Waje — Portfolio</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="wrap">
+    <aside class="card profile">
+      <div class="avatar">AW</div>
+      <h1>Akash Waje</h1>
+      <p class="lead">Aspiring Cloud & DevOps Engineer</p>
+
+      <div class="contact">
+        <div class="chip">
+          <div>
+            <div style="font-size:12px;color:var(--muted)">Email</div>
+            <div style="font-weight:600">akashwaje99@gmail.com</div>
+          </div>
+          <button onclick="copyText('akashwaje99@gmail.com')" title="Copy email">Copy</button>
+        </div>
+
+        <div class="chip">
+          <div>
+            <div style="font-size:12px;color:var(--muted)">Location</div>
+            <div style="font-weight:600">Pune, India</div>
+          </div>
+        </div>
+
+        <div class="chip">
+          <div>
+            <div style="font-size:12px;color:var(--muted)">Resume</div>
+            <a href="#" style="font-weight:600;color:var(--accent);text-decoration:none">Download</a>
+          </div>
+        </div>
+      </div>
+
+      <div style="margin-top:18px;text-align:left">
+        <div style="font-size:13px;color:var(--muted);margin-bottom:6px">Skills</div>
+        <div class="skills">
+          <div class="skill">AWS</div>
+          <div class="skill">Linux</div>
+          <div class="skill">Docker</div>
+          <div class="skill">Git/GitHub</div>
+          <div class="skill">CI/CD</div>
+          <div class="skill">Terraform (basic)</div>
+        </div>
+      </div>
+    </aside>
+
+    <section class="card main">
+      <div>
+        <div class="section-title">
+          <h2 class="h2">About</h2>
+          <div class="small">Short intro</div>
+        </div>
+        <p class="about">
+          I build and deploy reliable cloud infrastructure and automate developer workflows.
+          Currently focused on AWS, Linux, and DevOps tooling.
+        </p>
+      </div>
+
+      <div>
+        <div class="section-title">
+          <h2 class="h2">Projects</h2>
+          <div class="small">Selected</div>
+        </div>
+
+        <div class="projects">
+          <div class="project">
+            <h3>Portfolio + CI/CD (S3 + GitHub Actions)</h3>
+            <p>Static site hosted on S3 with automatic deployments using GitHub Actions.</p>
+          </div>
+
+          <div class="project">
+            <h3>Demo: EC2 CloudFormation</h3>
+            <p>Simple CloudFormation template to create an EC2 instance (Amazon Linux 2) for demos.</p>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <div class="section-title">
+          <h2 class="h2">Contact</h2>
+          <div class="small">Get in touch</div>
+        </div>
+        <p class="about">Email: <strong>akashwaje99@gmail.com</strong></p>
+        <footer>Made with ❤ • Akash Waje</footer>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    function copyText(txt){
+      if(navigator.clipboard){
+        navigator.clipboard.writeText(txt).then(()=> alert('Copied: ' + txt));
+      } else {
+        const t = document.createElement('textarea');
+        t.value = txt; document.body.appendChild(t);
+        t.select(); document.execCommand('copy'); document.body.removeChild(t);
+        alert('Copied: ' + txt);
+      }
+    }
+  </script>
+</body>
+</html>
