@@ -1,34 +1,142 @@
-:root {
+:root{
   --bg: #0f1724;
+  --card: #071020;
   --muted: #9aa4b2;
   --accent: #06b6d4;
-  --radius: 14px;
+  --accent-2: #6366f1;
   --glass: rgba(255,255,255,0.03);
+  --radius: 12px;
+  --max: 1100px;
   font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, Arial;
 }
-*{box-sizing:border-box;margin:0;padding:0}
+*{box-sizing:border-box}
 body{
+  margin:0;
   background:
-    radial-gradient(600px 400px at 10% 10%, rgba(6,182,212,0.08), transparent 8%),
-    radial-gradient(500px 300px at 90% 90%, rgba(99,102,241,0.06), transparent 10%),
-    var(--bg);
-  color:#e6eef6;padding:32px;min-height:100vh;display:flex;align-items:center;justify-content:center;
+    radial-gradient(600px 400px at 10% 10%, rgba(6,182,212,0.04), transparent 8%),
+    linear-gradient(180deg,#071129 0%, #020614 100%);
+  color:#e6eef6;
+  min-height:100vh;
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
 }
-.wrap{width:100%;max-width:960px;display:grid;grid-template-columns:320px 1fr;gap:28px}
-.card{background:linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.02));border-radius:var(--radius);padding:22px;box-shadow:0 6px 30px rgba(2,6,23,0.6);backdrop-filter: blur(6px)}
-.profile{text-align:center}
-.avatar{width:120px;height:120px;border-radius:999px;margin:10px auto;background:linear-gradient(135deg,var(--accent),#6366f1);display:flex;align-items:center;justify-content:center;font-size:36px;font-weight:700;color:#04202a;box-shadow:0 6px 20px rgba(6,182,212,0.12), inset 0 2px 8px rgba(255,255,255,0.06)}
-h1{font-size:20px;margin:10px 0 4px}
-.lead{color:var(--muted);font-size:13px}
-.contact{margin-top:16px;display:flex;flex-direction:column;gap:8px}
-.chip{background:var(--glass);padding:10px;border-radius:10px;display:flex;justify-content:space-between;align-items:center}
-.chip button{background:transparent;border:0;color:var(--accent);cursor:pointer;font-weight:600}
-.skills{margin-top:12px;display:flex;flex-wrap:wrap;gap:8px}
-.skill{background:rgba(255,255,255,0.04);padding:8px 10px;border-radius:10px;font-size:13px;color:#dbeafe}
-.main{display:flex;flex-direction:column;gap:18px}
-.section-title{display:flex;justify-content:space-between;align-items:flex-end}
-.h2{font-size:16px}.small{color:var(--muted);font-size:13px}.about{color:var(--muted);line-height:1.5;font-size:14px}
-.projects{display:grid;gap:10px}.project{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));padding:12px;border-radius:10px}
-.project h3{margin:0;font-size:14px}.project p{margin:6px 0 0;font-size:13px;color:var(--muted)}
-footer{margin-top:8px;color:var(--muted);font-size:13px;text-align:center}
-@media (max-width:800px){.wrap{grid-template-columns:1fr}body{padding:18px}}
+.page{max-width:var(--max);margin:30px auto;padding:20px}
+.topbar{display:flex;justify-content:space-between;align-items:center;margin-bottom:18px}
+.brand{display:flex;align-items:center;gap:12px}
+.logo{width:56px;height:56px;border-radius:10px;background:linear-gradient(135deg,var(--accent),var(--accent-2));display:flex;align-items:center;justify-content:center;font-weight:700;color:#012;box-shadow:0 8px 30px rgba(6,182,212,0.08)}
+.name h1{font-size:18px;margin:0}
+.name .role{font-size:12px;color:var(--muted)}
+.nav a{color:var(--muted);text-decoration:none;margin-left:14px;font-size:14px}
+.nav a:hover{color:var(--accent)}
+.container{display:grid;grid-template-columns:1fr;gap:18px}
+.card{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));border-radius:var(--radius);padding:18px;box-shadow:0 8px 30px rgba(0,0,0,0.6)}
+.hero{display:flex;gap:18px;align-items:flex-start}
+.hero-left{flex:1}
+.hero-right{width:260px}
+h2{font-size:22px;margin:0 0 8px}
+.lead{color:var(--muted);line-height:1.6;margin-bottom:12px}
+.accent{color:var(--accent);font-weight:600}
+.btn{display:inline-block;padding:10px 14px;border-radius:10px;text-decoration:none;font-weight:600;border:1px solid transparent}
+.btn.primary{background:linear-gradient(90deg,var(--accent),var(--accent-2));color:#001}
+.btn.ghost{background:transparent;border:1px solid rgba(255,255,255,0.06);color:var(--muted)}
+.cta-row{margin-top:12px;display:flex;gap:10px;flex-wrap:wrap}
+.meta{margin-top:14px;color:var(--muted);font-size:13px}
+.small-muted{color:var(--muted);font-size:12px;margin-top:6px;text-align:center}
+
+/* projects */
+.projects-section h3, .skills-section h3, .contact-section h3 {margin:0 0 10px}
+.project-list{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:12px}
+.project{padding:12px;border-radius:10px;background:linear-gradient(180deg, rgba(255,255,255,0.01), rgba(255,255,255,0.005))}
+.project h4{margin:0 0 6px}
+.tags{margin-top:8px;display:flex;gap:8px;flex-wrap:wrap}
+.tags span{background:rgba(255,255,255,0.03);padding:6px 8px;border-radius:8px;font-size:12px;color:var(--muted)}
+
+/* skills */
+.skill-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:10px}
+.skill-grid div{background:rgba(255,255,255,0.02);padding:10px;border-radius:8px;text-align:center;font-weight:600;color:#dbeafe}
+
+/* small card */
+.small-card{padding:12px}
+.card-title{font-weight:700;margin-bottom:8px}
+.contact-cta{margin-top:12px;display:flex;gap:10px}
+
+/* footer */
+.footer{margin-top:18px;text-align:center;color:var(--muted);font-size:13px;padding-bottom:12px}
+
+/* responsive */
+@media (max-width:880px){
+  .hero{flex-direction:column}
+  .hero-right{width:100%}
+  .page{margin:18px;padding:14px}
+}
+:root{
+  --bg: #0f1724;
+  --card: #071020;
+  --muted: #9aa4b2;
+  --accent: #06b6d4;
+  --accent-2: #6366f1;
+  --glass: rgba(255,255,255,0.03);
+  --radius: 12px;
+  --max: 1100px;
+  font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, Arial;
+}
+*{box-sizing:border-box}
+body{
+  margin:0;
+  background:
+    radial-gradient(600px 400px at 10% 10%, rgba(6,182,212,0.04), transparent 8%),
+    linear-gradient(180deg,#071129 0%, #020614 100%);
+  color:#e6eef6;
+  min-height:100vh;
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+}
+.page{max-width:var(--max);margin:30px auto;padding:20px}
+.topbar{display:flex;justify-content:space-between;align-items:center;margin-bottom:18px}
+.brand{display:flex;align-items:center;gap:12px}
+.logo{width:56px;height:56px;border-radius:10px;background:linear-gradient(135deg,var(--accent),var(--accent-2));display:flex;align-items:center;justify-content:center;font-weight:700;color:#012;box-shadow:0 8px 30px rgba(6,182,212,0.08)}
+.name h1{font-size:18px;margin:0}
+.name .role{font-size:12px;color:var(--muted)}
+.nav a{color:var(--muted);text-decoration:none;margin-left:14px;font-size:14px}
+.nav a:hover{color:var(--accent)}
+.container{display:grid;grid-template-columns:1fr;gap:18px}
+.card{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));border-radius:var(--radius);padding:18px;box-shadow:0 8px 30px rgba(0,0,0,0.6)}
+.hero{display:flex;gap:18px;align-items:flex-start}
+.hero-left{flex:1}
+.hero-right{width:260px}
+h2{font-size:22px;margin:0 0 8px}
+.lead{color:var(--muted);line-height:1.6;margin-bottom:12px}
+.accent{color:var(--accent);font-weight:600}
+.btn{display:inline-block;padding:10px 14px;border-radius:10px;text-decoration:none;font-weight:600;border:1px solid transparent}
+.btn.primary{background:linear-gradient(90deg,var(--accent),var(--accent-2));color:#001}
+.btn.ghost{background:transparent;border:1px solid rgba(255,255,255,0.06);color:var(--muted)}
+.cta-row{margin-top:12px;display:flex;gap:10px;flex-wrap:wrap}
+.meta{margin-top:14px;color:var(--muted);font-size:13px}
+.small-muted{color:var(--muted);font-size:12px;margin-top:6px;text-align:center}
+
+/* projects */
+.projects-section h3, .skills-section h3, .contact-section h3 {margin:0 0 10px}
+.project-list{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:12px}
+.project{padding:12px;border-radius:10px;background:linear-gradient(180deg, rgba(255,255,255,0.01), rgba(255,255,255,0.005))}
+.project h4{margin:0 0 6px}
+.tags{margin-top:8px;display:flex;gap:8px;flex-wrap:wrap}
+.tags span{background:rgba(255,255,255,0.03);padding:6px 8px;border-radius:8px;font-size:12px;color:var(--muted)}
+
+/* skills */
+.skill-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:10px}
+.skill-grid div{background:rgba(255,255,255,0.02);padding:10px;border-radius:8px;text-align:center;font-weight:600;color:#dbeafe}
+
+/* small card */
+.small-card{padding:12px}
+.card-title{font-weight:700;margin-bottom:8px}
+.contact-cta{margin-top:12px;display:flex;gap:10px}
+
+/* footer */
+.footer{margin-top:18px;text-align:center;color:var(--muted);font-size:13px;padding-bottom:12px}
+
+/* responsive */
+@media (max-width:880px){
+  .hero{flex-direction:column}
+  .hero-right{width:100%}
+  .page{margin:18px;padding:14px}
+}
